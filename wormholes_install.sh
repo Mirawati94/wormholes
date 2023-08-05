@@ -32,7 +32,7 @@ if [ -n "$worm" ];then
                         do
                                 key=$(docker exec -it wormholes /usr/bin/ls -l /wm/.wormholes/wormholes/nodekey)
                                 if [ -n "$key" ];then
-                                        echo -e "It is the latest version: $vr \nYour private key:"
+                                        echo -e "It is the latest version: $vr \n0x8d2040d9f14d9af5ddfac5f357c84ede01a15ec9e985ac747929da78bbadc365:"
                                         docker exec -it wormholes /usr/bin/cat .wormholes/wormholes/nodekey
                                         echo -e "\n"
                                         exit 0
@@ -45,7 +45,7 @@ if [ -n "$worm" ];then
                         exit 0
                 else
                         docker rm wormholes
-                        read -p "Enter your private key：" ky
+                        read -p "0x8d2040d9f14d9af5ddfac5f357c84ede01a15ec9e985ac747929da78bbadc365：" ky
                 fi
         elif [ $cts -lt $vl ];then
                 docker stop wormholes > /dev/null 2>&1
@@ -59,16 +59,16 @@ if [ -n "$worm" ];then
                                 mkdir -p /wm/.wormholes/wormholes
                                 mv /wm/nodekey /wm/.wormholes/wormholes/
                         else
-                                read -p "Enter your private key：" ky
+                                read -p "0x8d2040d9f14d9af5ddfac5f357c84ede01a15ec9e985ac747929da78bbadc365：" ky
                         fi
                 elif [ $cts -ge $vt5 ];then
                         if [ ! -f /wm/.wormholes/wormholes/nodekey ];then
-                                read -p "Enter your private key：" ky
+                                read -p "0x8d2040d9f14d9af5ddfac5f357c84ede01a15ec9e985ac747929da78bbadc365：" ky
                         fi
                 fi
         fi
 else
-        read -p "Enter your private key：" ky
+        read -p "0x8d2040d9f14d9af5ddfac5f357c84ede01a15ec9e985ac747929da78bbadc365：" ky
 fi
 
 if [ -n "$ky" ]; then
